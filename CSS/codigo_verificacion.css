@@ -1,0 +1,185 @@
+/* --- 1. IMPORTACIÓN DE FUENTES --- */
+/* @import: Conecta con los servidores de Google para descargar las fuentes 'Balsamiq Sans' y 'Poppins' */
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+
+/* --- 2. VARIABLES GLOBALES --- */
+:root {
+    --color-fondo-externo: #737aa8; /* Color azulado para el fondo de la página */
+    --color-blanco-panel: #f4f4ff;  /* Color casi blanco para el fondo de la tarjeta */
+    --color-naranja-sol: #f3961c;   /* Naranja brillante para botones y enlaces */
+    --color-texto-titulo: #343959;  /* Azul oscuro para que los títulos resalten */
+    --color-texto-suave: #2f2f2f;   /* Gris oscuro para que los párrafos sean legibles */
+    --color-bordes-input: #e8e8e8;  /* Gris muy claro para bordes sutiles */
+    --color-link-morado: #f8bb84;   /* Un tono naranja suave para variaciones */
+}
+
+/* --- 3. ESTILOS BASE --- */
+* {
+    box-sizing: border-box; /* Incluye el borde y el padding en el tamaño total del elemento */
+    margin: 0;              /* Elimina márgenes por defecto del navegador */
+    padding: 0;             /* Elimina rellenos por defecto del navegador */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;    /* Fuente principal para todo el texto */
+    background-color: var(--color-fondo-externo); /* Aplica el azul al fondo */
+    display: flex;                         /* Activa el modo caja flexible */
+    justify-content: center;               /* Centra la tarjeta horizontalmente */
+    align-items: center;                   /* Centra la tarjeta verticalmente */
+    min-height: 100vh;                     /* Hace que el body mida al menos el alto de la pantalla */
+}
+
+/* Capa decorativa con puntos */
+.background-dots {
+    width: 100%;                           /* Ocupa todo el ancho */
+    min-height: 100vh;                     /* Ocupa todo el alto */
+    display: flex;                         /* Centra el contenido interior */
+    justify-content: center;
+    align-items: center;
+    /* Crea un efecto de puntos usando un gradiente circular pequeño que se repite */
+    background-image: radial-gradient(rgba(255, 255, 255, 0.2) 2px, transparent 2px);
+    background-size: 30px 30px;            /* Espaciado entre cada punto */
+}
+
+/* La tarjeta contenedora blanca */
+.card {
+    position: relative;                    /* Permite que elementos hijos usen 'absolute' respecto a ella */
+    background-color: var(--color-blanco-panel); 
+    padding: 60px 40px 40px 40px;          /* Espacio interno (Arriba, Derecha, Abajo, Izquierda) */
+    border-radius: 15px;                   /* Esquinas redondeadas */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Sombra suave para dar profundidad */
+    width: 100%;                           /* Ancho flexible */
+    max-width: 440px;                      /* No crecerá más de 440px en pantallas grandes */
+    text-align: center;                    /* Centra todos los textos e hijos */
+}
+
+/* --- 4. BOTÓN REGRESAR --- */
+.btn-back {
+    position: absolute;                    /* Lo saca del flujo y lo ubica manualmente */
+    top: 20px;                             /* 20px desde arriba de la card */
+    left: 20px;                            /* 20px desde la izquierda de la card */
+    display: flex;                         /* Para alinear icono y texto */
+    align-items: center;                   /* Centrado vertical del icono/texto */
+    gap: 5px;                              /* Espacio entre la flecha y el texto */
+    background: transparent;               /* Sin fondo */
+    border: none;                          /* Sin borde */
+    color: var(--color-texto-titulo);      /* Color del texto */
+    font-weight: 600;                      /* Texto semi-negrita */
+    cursor: pointer;                       /* Cambia el cursor a "mano" */
+    transition: color 0.3s;                /* Animación suave al cambiar de color */
+}
+
+.btn-back:hover { color: var(--color-naranja-sol); } /* Cambia a naranja al pasar el mouse */
+.btn-back svg { fill: currentColor; }      /* El icono SVG toma el mismo color que el texto */
+
+/* --- 5. ICONO SUPERIOR (Círculo) --- */
+.icon-container { display: flex; justify-content: center; margin-bottom: 20px; }
+.icon-circle {
+    background-color: #e8e8ff;             /* Fondo azul muy clarito */
+    color: var(--color-naranja-sol);       /* Icono naranja */
+    width: 50px;                           /* Ancho fijo */
+    height: 50px;                          /* Alto fijo */
+    border-radius: 50%;                    /* Círculo perfecto */
+    display: flex;                         /* Para centrar el icono dentro */
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- 6. TIPOGRAFÍA --- */
+h2 {
+    font-family: 'Balsamiq Sans', cursive; /* Fuente especial para títulos */
+    color: var(--color-texto-titulo);      /* Azul oscuro */
+    font-size: 24px;                       /* Tamaño de letra */
+    margin-bottom: 10px;                   /* Separación con el párrafo */
+}
+
+p {
+    color: var(--color-texto-suave);       /* Color gris oscuro */
+    font-size: 14px;                       /* Letra pequeña y elegante */
+    margin-bottom: 30px;                   /* Separación con los cuadros OTP */
+}
+
+/* --- 7. CONTENEDOR DE CÓDIGO OTP (Los cuadritos) --- */
+.otp-container {
+    display: flex;                         /* Alinea los inputs en fila */
+    justify-content: center;               /* Los centra horizontalmente */
+    gap: 12px;                             /* Espacio de 12px entre cada cuadrito */
+    margin-bottom: 30px;                   /* Separación con el botón de abajo */
+}
+
+.otp-container input {
+    width: 60px;                           /* Ancho de cada cuadro */
+    height: 60px;                          /* Alto de cada cuadro */
+    text-align: center;                    /* Centra el número escrito */
+    font-size: 24px;                       /* Número grande */
+    font-weight: 600;                      /* Número en negrita */
+    border: 2px solid var(--color-fondo-externo); /* Borde azulado */
+    border-radius: 12px;                   /* Esquinas suavizadas */
+    background: white;                     /* Fondo blanco */
+    color: var(--color-fondo-externo);     /* Color del número */
+    outline: none;                         /* Quita el borde azul feo por defecto */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Animaciones para el focus */
+}
+
+.otp-container input:focus {
+    border-color: var(--color-texto-titulo); /* El borde se oscurece al escribir */
+    box-shadow: 0 0 8px rgba(243, 150, 28, 0.2); /* Resplandor naranja muy suave */
+}
+
+/* --- 8. BOTÓN PRINCIPAL --- */
+.btn-reset {
+    width: 100%;                           /* Ocupa todo el ancho disponible */
+    padding: 14px;                         /* Grosor del botón */
+    background-color: var(--color-naranja-sol); /* Fondo naranja */
+    color: white;                          /* Texto blanco */
+    border: none;                          /* Sin bordes */
+    border-radius: 8px;                    /* Esquinas redondeadas */
+    font-size: 16px;                       /* Tamaño legible */
+    font-weight: 600;                      /* Texto importante */
+    cursor: pointer;                       /* Icono de mano */
+    transition: background-color 0.3s;     /* Animación de color */
+}
+
+.btn-reset:hover { background-color: var(--color-fondo-externo); } /* Cambia a azul al pasar el mouse */
+
+.resend-text { margin-top: 25px; font-size: 13px; } /* Estilo para el texto de "Reenviar código" */
+.resend-text a {
+    color: var(--color-naranja-sol);       /* El enlace es naranja */
+    text-decoration: none;                 /* Sin subrayado */
+    font-weight: 600;                      /* Enlace resaltado */
+}
+
+/* --- 9. DISEÑO RESPONSIVO --- */
+
+/* Ajustes para pantallas medianas (Tablets) */
+@media (max-width: 992px) {
+    .card {
+        max-width: 380px;                  /* Se hace un poco más angosta */
+        padding: 50px 30px 35px 30px;      /* Menos relleno */
+    }
+}
+
+/* Ajustes para pantallas pequeñas (Celulares) */
+@media (max-width: 480px) {
+    .card {
+        border-radius: 25px;               /* Curva más pronunciada, estilo moderno */
+        margin: 15px;                      /* Margen para que no toque los bordes del cel */
+        padding: 60px 20px 30px 20px;      /* Espacios ajustados */
+    }
+
+    h2 { font-size: 1.4rem; }              /* Título un poco más pequeño */
+
+    .btn-back { top: 25px; left: 20px; }   /* Ajuste de posición del botón atrás */
+
+    .otp-container { gap: 8px; }           /* Menos espacio entre cuadros para que quepan */
+
+    .otp-container input {
+        width: 50px;                       /* Cuadros más pequeños */
+        height: 50px;                      /* Cuadros más pequeños */
+        font-size: 18px;                   /* Letra interna más pequeña */
+    }
+    
+    input {
+        font-size: 16px;                   /* Evita que el navegador haga zoom al tocar (truco de UX) */
+    }
+}

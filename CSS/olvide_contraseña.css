@@ -1,0 +1,209 @@
+/* --- 1. IMPORTACIÓN DE FUENTES --- */
+/* Carga Poppins para el cuerpo del texto y Balsamiq Sans para un toque más amigable en títulos */
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+
+/* --- 2. VARIABLES GLOBALES --- */
+:root {
+    --color-fondo-externo: #737aa8; /* Azul purpúreo para el fondo de pantalla */
+    --color-blanco-panel: #f4f4ff;  /* Blanco con un matiz azul para la tarjeta */
+    --color-naranja-sol: #f3961c;   /* Naranja brillante para llamadas a la acción */
+    --color-texto-titulo: #343959;  /* Azul muy oscuro para contraste en títulos */
+    --color-texto-suave: #2f2f2f;   /* Gris oscuro para párrafos */
+    --color-bordes-input: #e8e8e8;  /* Gris claro para que los inputs no pesen visualmente */
+    --color-link-morado: #f8bb84;   /* Color de apoyo para enlaces secundarios */
+}
+
+/* --- 3. ESTILOS BASE --- */
+* {
+    box-sizing: border-box;         /* El ancho del elemento incluye el padding y el borde */
+    margin: 0;                      /* Elimina espacios externos residuales */
+    padding: 0;                     /* Elimina espacios internos residuales */
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Tipografía por defecto */
+    background-color: var(--color-fondo-externo); /* Color de fondo general */
+    display: flex;                  /* Activa Flexbox para centrar la tarjeta */
+    justify-content: center;        /* Centrado horizontal */
+    align-items: center;            /* Centrado vertical */
+    min-height: 100vh;              /* Ocupa el 100% de la altura visible */
+    padding: 20px;                  /* Margen de seguridad para que la card no toque los bordes */
+}
+
+/* Fondo decorativo con patrón de puntos */
+.background-dots {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Crea un efecto de "papel punteado" usando un gradiente radial repetido */
+    background-image: radial-gradient(rgba(255, 255, 255, 0.2) 2px, transparent 2px);
+    background-size: 30px 30px;     /* Distancia entre cada punto */
+}
+
+/* --- 4. TARJETA PRINCIPAL --- */
+.card {
+    position: relative;             /* Permite posicionar el botón 'Back' de forma absoluta */
+    background-color: var(--color-blanco-panel);
+    padding: 60px 40px 40px 40px;   /* Más espacio arriba para el botón de retroceso */
+    border-radius: 15px;            /* Esquinas redondeadas */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Sombra suave para dar elevación */
+    width: 100%;
+    max-width: 400px;               /* Ancho ideal para formularios compactos */
+    text-align: center;             /* Centra todo el contenido de la card */
+    transition: all 0.3s ease;      /* Suaviza cualquier cambio de tamaño o estilo */
+}
+
+/* --- 5. BOTÓN DE RETROCESO (BACK) --- */
+.btn-back {
+    position: absolute;             /* Se ubica respecto a la .card */
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 5px;                       /* Espacio entre el icono SVG y el texto 'Back' */
+    background: transparent;
+    border: none;
+    color: var(--color-texto-titulo);
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 600;               /* Texto en semi-negrita */
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.btn-back svg {
+    fill: currentColor;             /* El icono hereda el color del texto automáticamente */
+}
+
+.btn-back:hover {
+    color: var(--color-naranja-sol); /* Cambia a naranja al pasar el mouse */
+}
+
+/* --- 6. ICONO DE LLAVE / ACCIÓN --- */
+.icon-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.icon-circle {
+    background-color: #e8e8ff;     /* Círculo de fondo azul muy pálido */
+    color: var(--color-naranja-sol); /* Color del icono */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;            /* Crea el círculo perfecto */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- 7. TIPOGRAFÍA --- */
+h2 {
+    font-family: 'Balsamiq Sans', cursive; /* Fuente con estilo "escrito a mano" */
+    color: var(--color-texto-titulo);
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+}
+
+p {
+    color: var(--color-texto-suave);
+    font-size: 14px;
+    margin-bottom: 30px;
+    opacity: 0.8;                   /* Hace el texto un poco más sutil */
+}
+
+/* --- 8. FORMULARIO E INPUTS --- */
+.input-group {
+    text-align: left;               /* Alinea la etiqueta y el input a la izquierda */
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;                 /* Ocupa toda la línea */
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--color-texto-titulo);
+}
+
+input {
+    width: 100%;
+    padding: 12px 15px;             /* Espacio cómodo para escribir */
+    border: 1px solid var(--color-bordes-input);
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    outline: none;                  /* Quita el borde azul por defecto del navegador */
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    border-color: var(--color-naranja-sol); /* Resalta el borde al hacer clic */
+}
+
+/* --- 9. BOTÓN PRINCIPAL --- */
+.btn-reset {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--color-naranja-sol);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 10px;
+}
+
+.btn-reset:hover {
+    background-color: var(--color-fondo-externo); /* Cambia al azul del fondo */
+    transform: translateY(-1px);    /* Efecto sutil de levantamiento */
+}
+
+/* Enlace inferior */
+.back-to-login {
+    display: inline-block;
+    margin-top: 20px;
+    color: var(--color-texto-suave);
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.3s;
+}
+
+.back-to-login:hover {
+    color: var(--color-naranja-sol);
+    text-decoration: underline;    /* Subrayado clásico al pasar el mouse */
+}
+
+/* --- 10. DISEÑO RESPONSIVO --- */
+
+/* Ajustes para Tablets */
+@media (max-width: 992px) {
+    .card {
+        max-width: 380px;
+        padding: 50px 30px 35px 30px;
+    }
+}
+
+/* Ajustes para Celulares */
+@media (max-width: 480px) {
+    .card {
+        border-radius: 25px;        /* Bordes más redondeados en móvil */
+        margin: 15px;
+        padding: 60px 20px 30px 20px;
+    }
+
+    h2 { font-size: 1.4rem; }      /* Título un poco más pequeño */
+
+    .btn-back {
+        top: 25px;
+        left: 20px;
+    }
+    
+    input {
+        font-size: 16px;            /* Tamaño de fuente 16px evita el zoom automático en iPhones */
+    }
+}

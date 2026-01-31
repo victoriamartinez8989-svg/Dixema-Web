@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login proveedor - DIXEMA</title>
+    
+    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/2913/2913008.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/login_proveedor.css">
+</head>
+<body>
+
+    <div class="main-container">
+        <div class="form-section">
+            <h1>Bienvenidos<br> <span>Nuevamente</span></h1>
+            <p class="subtitle">Coloca los datos correspondientes</p>
+
+            
+
+            <form action="#">
+                <div class="input-group">
+                    <input type="email" placeholder="Email" required>
+                </div>
+                
+                <div class="input-group password-wrapper">
+                    <input type="password" id="password" placeholder="Password" required>
+                    <i class="fa-solid fa-eye" id="togglePassword"></i>
+                </div>
+
+                <div class="form-options">
+                    <label>
+                        <input type="checkbox"> Recordar contraseña
+                    </label>
+                    <a href="olvide_contraseña.html" class="forgot-link">Olvidé mi contraseña</a>
+                </div>
+
+                <button type="submit">
+                    Iniciar 
+                    <div class="arrow-wrapper">
+                        <div class="arrow"></div>
+                    </div>
+                </button>
+            </form>
+
+            <p class="footer-text">
+                ¿Aun no tienes una cuenta? <a href="registro_proveedor.html" class="no-underline">Registrate aqui</a>
+            </p>
+        </div>
+
+        <div class="image-section"></div>
+    </div>
+
+    <script src="../JS/login.js"></script>
+</body>
+</html>

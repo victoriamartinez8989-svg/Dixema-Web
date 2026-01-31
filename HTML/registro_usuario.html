@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro usuario - DIXEMA</title>
+    
+    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/2913/2913008.png">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/registro_usuario.css">
+</head>
+<body>
+
+    <div class="main-container">
+        
+        <div class="form-section">
+            
+            <h1>Bienvenidos a<br> <span>DIXEMA</span></h1>
+            <p class="subtitle">LLena cada espacio con tu información o inicia sesión con Google</p>
+
+            <button type="button" class="google-login-btn">
+                <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google Logo">
+                <span>Registrate con Google</span>
+            </button>
+
+            <div class="divider">Datos de usuario</div>
+
+            <form action="#" id="registrationForm">
+
+                <div class="input-group">
+                    <input type="email" placeholder="Email" required>
+                </div>
+                
+                <div class="input-group password-container">
+                    <input type="password" id="password" placeholder="Password" required>
+                    <i class="fa-solid fa-eye" id="togglePassword"></i>
+                </div>
+
+                <div class="input-group">
+                    <input type="text" placeholder="Nombre" required>
+                </div>
+
+                <div class="input-group">
+                    <input type="text" placeholder="Calle" required>
+                </div>
+
+                <div class="input-group">
+                    <input type="text" placeholder="Colonia" required>
+                </div>
+
+                <div class="input-group">
+                    <input type="text" placeholder="Estado" required>
+                </div>
+
+                <div class="input-group">
+                    <input type="text" placeholder="Municipio" required>
+                </div>
+
+                <div class="input-group">
+                    <input type="tel" placeholder="Número de teléfono" required>
+                </div>
+
+
+               <div class="form-options">
+                    <label>
+                        <input type="checkbox"> Recordar contraseña
+                    </label>
+                </div>
+
+                 <button type="submit">
+                    Crear cuenta?
+                    <div class="arrow-wrapper">
+                        <div class="arrow"></div>
+                    </div>
+                </button>
+            </form>
+
+            <p class="footer-text">
+                ¿Ya tienes una cuenta? <a href="login_usuario.html" class="no-underline">Inicia sesión</a>
+            </p>
+        </div>
+
+        <div class="image-section"></div>
+
+    </div>
+ <script src="../JS/login.js"></script>
+</body>
+</html>

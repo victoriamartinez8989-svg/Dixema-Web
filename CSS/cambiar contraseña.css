@@ -1,0 +1,290 @@
+/* --- 1. IMPORTACIÓN DE FUENTES --- */
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+
+/* --- 2. VARIABLES GLOBALES --- */
+:root {
+    --color-fondo-externo: #737aa8;
+    --color-blanco-panel: #f4f4ff;
+    --color-naranja-sol: #f3961c;
+    --color-texto-titulo: #343959;
+    --color-texto-suave: #2f2f2f;
+    --color-bordes-input: #e8e8e8;
+    --color-link-morado: #f8bb84;
+    --color-rojo-error: #ff4d4d;
+    --color-verde-exito: #2ecc71; /* Añadida para la alerta */
+}
+
+/* --- 3. ESTILOS BASE --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--color-fondo-externo);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.background-dots {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.2) 2px, transparent 2px);
+    background-size: 30px 30px;
+}
+
+/* --- 4. LA TARJETA (CARD) --- */
+.card {
+    position: relative;
+    background-color: var(--color-blanco-panel);
+    padding: 60px 40px 40px 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 440px;
+    text-align: center;
+}
+
+/* --- 5. NAVEGACIÓN Y ICONOS --- */
+.btn-back {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: transparent;
+    border: none;
+    color: var(--color-texto-titulo);
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.btn-back:hover { color: var(--color-naranja-sol); }
+
+.icon-container { display: flex; justify-content: center; margin-bottom: 20px; }
+.icon-circle {
+    background-color: #e8e8ff;
+    color: var(--color-naranja-sol);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- 6. TEXTOS --- */
+h2 {
+    font-family: 'Balsamiq Sans', cursive;
+    color: var(--color-texto-titulo);
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+p {
+    color: var(--color-texto-suave);
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+/* --- 7. FORMULARIO E INPUTS --- */
+.input-group { text-align: left; margin-bottom: 15px; }
+
+label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--color-texto-titulo);
+}
+
+input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--color-bordes-input);
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+input:focus { border-color: var(--color-naranja-sol); }
+
+/* --- ESTILOS PARA EL OJO --- */
+.password-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.password-wrapper input {
+    padding-right: 45px; /* Evita que el texto se encime con el icono */
+}
+
+.password-wrapper i {
+    position: absolute;
+    right: 15px;
+    cursor: pointer;
+    color: var(--color-texto-suave);
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    z-index: 10;
+}
+
+.password-wrapper i:hover {
+    color: var(--color-texto-suave);
+}
+
+/* --- 8. MEDIDOR DE FUERZA --- */
+.strength-meter {
+    display: flex;
+    gap: 5px;
+    margin: 10px 0 25px 0;
+}
+
+.strength-bar {
+    height: 4px;
+    flex: 1;
+    background-color: var(--color-bordes-input);
+    border-radius: 2px;
+    transition: background-color 0.3s ease;
+}
+
+/* Colores dinámicos (Usamos !important para asegurar que el JS gane al color base) */
+.strength-bar.weak { background-color: var(--color-rojo-error) !important; }
+.strength-bar.medium { background-color: #f1c40f !important; } 
+.strength-bar.strong { background-color: var(--color-verde-exito) !important; }
+
+/* --- 9. REQUISITOS (Checklist) --- */
+.requirement {
+    font-size: 12px;
+    color: #8a8aa0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+.requirement.met { 
+    color: var(--color-verde-exito);
+    font-weight: 600;
+}
+
+/* --- 10. BOTONES DE ACCIÓN --- */
+.actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.btn-reset, .btn-discard {
+    flex: 1;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-reset {
+    background-color: var(--color-naranja-sol);
+    color: white;
+    border: none;
+}
+
+.btn-reset:hover { background-color: var(--color-fondo-externo); }
+
+.btn-discard {
+    background-color: white;
+    color: var(--color-texto-titulo);
+    border: 1px solid var(--color-bordes-input);
+}
+
+.btn-discard:hover { 
+    background-color: #ededff; 
+    color: var(--color-texto-titulo);
+}
+
+/* --- 11. ESTILOS DE LA ALERTA (CORREGIDOS) --- */
+.warning {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color-rojo-error); 
+    border: 1px solid var(--color-rojo-error);
+    border-left: 5px solid var(--color-rojo-error);
+    border-radius: 8px;
+    padding: 15px 20px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 2000; /* Asegura que esté por encima de todo */
+    animation: slideDown 0.4s ease forwards;
+}
+
+@keyframes slideDown {
+    from { transform: translate(-50%, -100px); opacity: 0; }
+    to { transform: translate(-50%, 0); opacity: 1; }
+}
+
+.warning__icon {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.warning__title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-blanco-panel);
+    flex-grow: 1;
+    text-align: left;
+}
+
+.warning__close {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+/* --- 12. DISEÑO RESPONSIVO --- */
+@media (max-width: 992px) {
+    .card {
+        max-width: 380px;
+        padding: 50px 30px 35px 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        border-radius: 25px;
+        margin: 15px;
+        padding: 60px 20px 30px 20px;
+    }
+
+    h2 { font-size: 1.4rem; }
+
+    .actions { 
+        flex-direction: column-reverse; 
+        gap: 10px;
+    }
+
+    input { font-size: 16px; }
+}

@@ -1,0 +1,277 @@
+/* --- 1. IMPORTACIÓN DE FUENTES --- */
+/* Trae las tipografías desde Google Fonts: Balsamiq para títulos y Poppins para lectura */
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+
+/* --- 2. VARIABLES GLOBALES --- */
+/* Definimos los colores aquí para que el código sea fácil de mantener y cambiar */
+:root {
+    --color-fondo-externo: #737aa8; /* Azul grisáceo del fondo principal */
+    --color-blanco-panel: #f4f4ff;  /* Blanco suave para la tarjeta del formulario */
+    --color-naranja-sol: #f3961c;   /* Color de acento (naranja) para botones y enlaces */
+    --color-texto-titulo: #343959;  /* Azul oscuro para títulos */
+    --color-texto-suave: #2f2f2f;   /* Gris oscuro para párrafos y descripciones */
+    --color-bordes-input: #e8e8e8;  /* Gris claro para los bordes de los campos */
+    --color-link-morado: #f8bb84;   /* Color secundario decorativo */
+}
+
+/* --- 3. RESETEO GENERAL --- */
+* {
+    box-sizing: border-box;         /* Los bordes y padding no aumentan el tamaño del elemento */
+    margin: 0;                      /* Elimina márgenes por defecto */
+    padding: 0;                     /* Elimina rellenos por defecto */
+    font-family: 'Poppins', sans-serif; /* Fuente base para todo el documento */
+}
+
+body {
+    background-color: var(--color-fondo-externo); /* Aplica el color de fondo definido arriba */
+    display: flex;                  /* Activa Flexbox para centrar contenido */
+    justify-content: center;        /* Centra horizontalmente */
+    align-items: center;            /* Centra verticalmente */
+    min-height: 100vh;              /* Ocupa el 100% de la altura de la pantalla */
+    padding: 20px;                  /* Espacio de seguridad para que no pegue a los bordes */
+}
+
+/* --- 4. CONTENEDOR DE LA TARJETA (MAIN CONTAINER) --- */
+.main-container {
+    background-color: var(--color-blanco-panel); 
+    width: 100%;                    /* Ancho total flexible */
+    max-width: 950px;               /* Ancho máximo para pantallas grandes */
+    height: 650px;                  /* Altura fija de la tarjeta */
+    border-radius: 40px;            /* Bordes muy redondeados (estilo moderno) */
+    display: flex;                  /* Divide la tarjeta en dos columnas (form e imagen) */
+    overflow: hidden;               /* Evita que el contenido se salga de los bordes redondeados */
+    box-shadow: 0 20px 50px rgba(46, 57, 96, 0.626); /* Sombra intensa para dar relieve */
+}
+
+/* --- 5. SECCIÓN IZQUIERDA (FORMULARIO) --- */
+.form-section {
+    flex: 1.1;                      /* Toma un poco más de la mitad del ancho total */
+    padding: 40px 60px;             /* Relleno interno generoso */
+    display: flex;                  /* Para organizar elementos en columna */
+    flex-direction: column;         /* Elementos uno debajo de otro */
+    overflow-y: auto;               /* Permite scroll si el formulario es muy largo */
+    scrollbar-width: none;          /* Oculta barra de scroll en Firefox */
+    -ms-overflow-style: none;       /* Oculta barra de scroll en Internet Explorer */
+}
+
+/* Ocultar barra de scroll en navegadores Chrome/Safari */
+.form-section::-webkit-scrollbar {
+    display: none;
+}
+
+/* --- 6. TEXTOS Y TÍTULOS --- */
+h1 {
+    font-family: 'Balsamiq Sans', cursive; 
+    color: var(--color-texto-titulo);
+    line-height: 1.1;               /* Espacio entre líneas del título */
+    margin-bottom: 10px;            /* Espacio debajo del título */
+    font-size: 2.5rem;              /* Tamaño grande del título */
+}
+
+h1 span { 
+    font-family: 'Balsamiq Sans', cursive;
+    color: var(--color-naranja-sol); } /* Resalta una palabra en naranja */
+
+.subtitle {
+    color: var(--color-texto-suave);
+    margin-bottom: 25px;            /* Espacio antes de los botones/inputs */
+    font-size: 0.95rem;
+}
+
+
+/* --- 9. CAMPOS DE ENTRADA (INPUTS) --- */
+.input-group input {
+    width: 100%;
+    padding: 12px 20px;             /* Espacio interno para que el texto no pegue al borde */
+    margin-bottom: 15px;            /* Espacio entre inputs */
+    border: 1px solid var(--color-bordes-input);
+    border-radius: 15px;
+    outline: none;                  /* Quita el borde azul por defecto */
+    font-size: 0.95rem;
+}
+
+/* --- AJUSTE PARA EL OJO EN EL PASSWORD --- */
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-wrapper input {
+    padding-right: 50px; /* Espacio para que el texto no tape el ojo */
+    margin-bottom: 0;    /* Quitamos el margen inferior para que el contenedor mande */
+}
+
+.password-wrapper i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--color-texto-suave);
+    transition: color 0.3s;
+    font-size: 1.1rem;
+}
+
+.password-wrapper i:hover {
+    color: var(--color-texto-suave);
+}
+
+/* Ajuste del margen para el grupo de entrada */
+.input-group {
+    margin-bottom: 15px;
+}
+
+/* --- 10. OPCIONES Y ENLACES --- */
+.form-options {
+    display: flex;                  /* Alinea "Recordarme" y "Olvidé clave" */
+    justify-content: space-between; /* Uno a la izquierda y otro a la derecha */
+    align-items: center;
+    margin: 5px 0 25px 0;
+    font-size: 0.85rem;
+    color: var(--color-texto-suave);
+}
+
+.forgot-link {
+    text-decoration: none;          /* Quita el subrayado inicial */
+    color: var(--color-fondo-externo);
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.forgot-link:hover {
+    color: var(--color-naranja-sol); 
+    text-decoration: underline;    /* Se subraya al pasar el mouse */
+}
+
+.no-underline {
+    text-decoration: none;
+    color: var(--color-naranja-sol);
+    font-weight: 700;               /* Más negrita para resaltar */
+}
+
+.no-underline:hover {
+    color: var(--color-texto-titulo);
+    text-decoration: underline;
+}
+
+/* --- 11. BOTÓN PRINCIPAL (CON FLECHA) --- */
+button {
+  box-sizing: border-box;
+  border: 0;
+  border-radius: 20px;
+  color: var(--color-blanco-panel);
+  padding: 1em 1.8em;               /* Padding relativo al tamaño de letra */
+  background: var(--color-naranja-sol);
+  display: flex;                    /* Alinea texto y flecha */
+  margin: 20px auto;                /* Centra el botón horizontalmente */
+  width: fit-content;               /* Solo crece lo necesario */
+  justify-content: center; 
+  align-items: center;
+  gap: 0.6em;                       /* Espacio entre texto y flecha */
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s background;      /* Cambio rápido de color al hover */
+}
+
+/* Contenedor de la flecha */
+button .arrow-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Línea de la flecha */
+button .arrow {
+  margin-top: 1px;
+  width: var(--arrow-width, 10px); 
+  background: var(--color-blanco-panel);
+  height: var(--arrow-stroke, 2px);
+  position: relative;
+  transition: 0.2s;
+}
+
+/* Punta de la flecha (creada con bordes rotados) */
+button .arrow::before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  border: solid var(--color-blanco-panel);
+  border-width: 0 var(--arrow-stroke, 2px) var(--arrow-stroke, 2px) 0;
+  display: inline-block;
+  top: -3px;
+  right: 3px;
+  transition: 0.2s;
+  padding: 3px;
+  transform: rotate(-45deg);        /* Rota el cuadro para que parezca una punta */
+}
+
+button:hover {
+  background-color: var(--color-fondo-externo); 
+}
+
+button:hover .arrow:before {
+  right: 0;                         /* La punta de la flecha se mueve un poco al hover */
+}
+
+.footer-text {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 0.9rem;
+    color: var(--color-texto-suave);
+}
+
+/* --- 12. SECCIÓN DERECHA (IMAGEN DE FONDO) --- */
+.image-section {
+    background-image: url('../Imagenes/fondo_intento.jpg'); 
+    flex: 1;                        /* Toma el espacio restante (la otra mitad) */
+    background-size: cover;         /* La imagen cubre todo el espacio sin deformarse */
+    background-position: center;    /* Centra la imagen en su contenedor */
+    margin: 15px;                   /* Separación del borde de la tarjeta */
+    border-radius: 30px;            /* Esquinas redondeadas propias para la imagen */
+}
+
+/*_________________________________________________________*/
+/* --- 13. DISEÑO RESPONSIVO (ADAPTACIÓN A MÓVILES) --- */
+/*_________________________________________________________*/
+
+/* Tablets (hasta 992px) */
+@media (max-width: 992px) {
+    .main-container {
+        height: auto;               /* Deja que la altura se ajuste al contenido */
+        min-height: 550px;
+    }
+    .image-section { display: none; } /* Oculta la imagen para dar espacio al formulario */
+    .form-section { padding: 40px; }  /* Reduce el padding */
+}
+
+/* Celulares (hasta 480px) */
+@media (max-width: 480px) {
+    .main-container {
+        border-radius: 30px;        /* Bordes un poco menos curvos */
+        margin: 10px;
+    }
+
+    .form-section {
+        padding: 30px 20px;         /* Padding compacto para pantallas pequeñas */
+    }
+
+    h1 {
+        font-size: 1.8rem;          /* Título más pequeño para que no se corte */
+        text-align: center;
+    }
+
+    .subtitle {
+        text-align: center;
+    }
+
+    .form-options {
+        flex-direction: column;     /* Apila "Recordarme" sobre "Olvidé clave" */
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .google-login-btn {
+        font-size: 0.85rem;         /* Letra un poco más pequeña en el botón */
+    }
+}

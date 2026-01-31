@@ -1,0 +1,248 @@
+/* --- 1. IMPORTACIÓN DE FUENTES --- */
+/* Carga las fuentes Poppins (lectura) y Balsamiq Sans (títulos divertidos) */
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+
+/* --- 2. VARIABLES GLOBALES --- */
+/* Paleta de colores centralizada para cambios rápidos */
+:root {
+    --color-fondo-externo: #737aa8; /* Azul del fondo */
+    --color-blanco-panel: #f4f4ff;  /* Blanco del contenedor */
+    --color-naranja-sol: #f3961c;   /* Naranja para resaltar */
+    --color-texto-titulo: #343959;  /* Azul oscuro para títulos */
+    --color-texto-suave: #2f2f2f;   /* Gris oscuro para textos normales */
+    --color-bordes-input: #e8e8e8;  /* Gris claro para bordes */
+    --color-link-morado: #f8bb84;   /* Color secundario */
+}
+
+/* --- 3. RESETEO GENERAL --- */
+* {
+    box-sizing: border-box;         /* El tamaño incluye padding y bordes */
+    margin: 0;                      /* Quita márgenes por defecto */
+    padding: 0;                     /* Quita rellenos por defecto */
+    font-family: 'Poppins', sans-serif; /* Fuente general */
+}
+
+body {
+    background-color: var(--color-fondo-externo);
+    display: flex;                  /* Centrado con Flexbox */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* --- 4. CONTENEDOR DE LA TARJETA --- */
+.main-container {
+    background-color: var(--color-blanco-panel);
+    width: 100%;
+    max-width: 950px;               /* Ancho de la tarjeta en PC */
+    height: 650px;                  /* Altura de la tarjeta en PC */
+    border-radius: 40px;            /* Esquinas muy redondas */
+    display: flex;                  /* Divide en columna de formulario e imagen */
+    overflow: hidden;               /* Corta lo que sobresalga de los bordes redondos */
+    box-shadow: 0 20px 50px rgba(46, 57, 96, 0.626); /* Sombra profunda */
+}
+
+/* --- 5. SECCIÓN IZQUIERDA (FORMULARIO) --- */
+.form-section {
+    flex: 1.1;                      /* Es un poco más ancha que la imagen */
+    padding: 40px 60px;             /* Espacio interno */
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;               /* Si el contenido crece, aparece el scroll */
+}
+
+/* --- 6. PERSONALIZACIÓN DEL SCROLLBAR (Exclusivo Webkit: Chrome/Safari/Edge) --- */
+/* Define el ancho total de la barra de scroll */
+.form-section::-webkit-scrollbar {
+    width: 4px; 
+}
+
+/* Define el fondo por donde se desliza la barra */
+.form-section::-webkit-scrollbar-track {
+    background: transparent;        /* Fondo invisible */
+    margin: 20px;                   /* Despega el scroll de los bordes arriba/abajo */
+}
+
+/* Define la parte que el usuario arrastra (el "pulgar") */
+.form-section::-webkit-scrollbar-thumb {
+    background: var(--color-naranja-sol); /* Color naranja vibrante */
+    border-radius: 10px;            /* Pulgar redondeado */
+}
+
+/* Cambio de color cuando el usuario pasa el mouse sobre el scroll */
+.form-section::-webkit-scrollbar-thumb:hover {
+    background: var(--color-fondo-externo); /* Se vuelve azul al tocarlo */
+}
+
+/* --- 7. TEXTOS Y TÍTULOS --- */
+h1 {
+    font-family: 'Balsamiq Sans', cursive;
+    color: var(--color-texto-titulo);
+    line-height: 1.1;               /* Título compacto */
+    margin-bottom: 10px;
+    font-size: 2.5rem;
+}
+
+h1 span { 
+    font-family: 'Balsamiq Sans', cursive;
+    color: var(--color-naranja-sol); } /* Palabra en naranja */
+
+.subtitle {
+    color: var(--color-texto-suave);
+    margin-bottom: 25px;
+    font-size: 0.95rem;
+}
+
+
+/* --- 10. CAMPOS DE ENTRADA --- */
+.input-group input {
+    width: 100%;
+    padding: 12px 20px;
+    margin-bottom: 15px;
+    border: 1px solid var(--color-bordes-input);
+    border-radius: 15px;
+    outline: none;                  /* Quita el brillo azul feo de los navegadores */
+    font-size: 0.95rem;
+}
+
+/* --- NUEVOS ESTILOS PARA EL OJO --- */
+
+.password-container {
+    position: relative; /* Necesario para posicionar el ojo adentro */
+    width: 100%;
+}
+
+.password-container input {
+    width: 100%;
+    padding-right: 50px; /* Deja espacio para que el texto no se encime con el ojo */
+    margin-bottom: 15px;
+}
+
+.password-container i {
+    position: absolute;
+    right: 20px;
+    top: 22px; /* Ajustado para centrarlo verticalmente con el input */
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--color-texto-suave);
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.password-container i:hover {
+    color: var(--color-texto-suave);
+}
+
+
+/* --- 11. OPCIONES Y ENLACES --- */
+.form-options {
+    display: flex;
+    justify-content: space-between; /* Recordarme a la izquierda, Olvidé a la derecha */
+    align-items: center;
+    margin: 5px 0 25px 0;
+    font-size: 0.85rem;
+}
+
+.forgot-link {
+    text-decoration: underline;     /* Subrayado fijo */
+    color: var(--color-fondo-externo);
+    font-weight: 500;
+}
+
+.no-underline {
+    text-decoration: none;
+    color: var(--color-naranja-sol);
+    font-weight: 700;
+}
+
+.no-underline:hover {
+    color: var(--color-texto-titulo);
+    text-decoration: underline;
+}
+
+/* --- 12. BOTÓN PRINCIPAL CON FLECHA --- */
+button {
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 20px;
+    color: var(--color-blanco-panel);
+    padding: 1em 1.8em;
+    background: var(--color-naranja-sol);
+    display: flex;
+    margin: 20px auto;              /* Centra el botón horizontalmente */
+    width: fit-content;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s background;
+}
+
+/* Estructura de la flecha */
+button .arrow-wrapper { display: flex; justify-content: center; align-items: center; }
+
+button .arrow {
+    margin-top: 1px;
+    width: 10px;                    /* Cuerpo de la flecha */
+    background: var(--color-blanco-panel);
+    height: 2px;
+    position: relative;
+    transition: 0.2s;
+}
+
+/* Punta de la flecha usando pseudo-elemento */
+button .arrow::before {
+    content: "";
+    position: absolute;
+    border: solid var(--color-blanco-panel);
+    border-width: 0 2px 2px 0;      /* Crea una esquina */
+    display: inline-block;
+    top: -3px;
+    right: 3px;
+    padding: 3px;
+    transform: rotate(-45deg);      /* La gira para que parezca flecha */
+    transition: 0.2s;
+}
+
+button:hover { background-color: var(--color-fondo-externo); }
+
+button:hover .arrow:before {
+    right: 0;                       /* La flecha "avanza" un poco en el hover */
+}
+
+.footer-text {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 0.9rem;
+    color: var(--color-texto-suave);
+}
+
+/* --- 13. SECCIÓN DERECHA (IMAGEN) --- */
+.image-section {
+    background-image: url('../Imagenes/fondo_intento.jpg'); 
+    flex: 1;                        /* Toma la mitad del contenedor */
+    background-size: cover;         /* La imagen se adapta sin estirarse */
+    background-position: center;
+    margin: 15px;
+    border-radius: 30px;            /* Redondeado interno para la foto */
+}
+
+/* --- 14. DISEÑO RESPONSIVO --- */
+
+/* Tablets */
+@media (max-width: 992px) {
+    .main-container { height: auto; min-height: 550px; }
+    .image-section { display: none; } /* Ocultamos la imagen para dar espacio al form */
+    .form-section { padding: 40px; }
+}
+
+/* Celulares */
+@media (max-width: 480px) {
+    .main-container { border-radius: 30px; margin: 10px; }
+    .form-section { padding: 30px 20px; }
+    h1 { font-size: 1.8rem; text-align: center; }
+    .subtitle { text-align: center; }
+    .form-options { flex-direction: column; gap: 15px; text-align: center; } /* Se apilan los links */
+}
